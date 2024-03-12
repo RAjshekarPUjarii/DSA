@@ -95,7 +95,7 @@ public class InsertionAndDeletion {
         return head;
     }
 
-    // delete the first node of the linked list
+    // delete the first Node of the linked list
     public static Node deleteFirstNode(Node head){
         if(head == null)return null;
         Node temp = head;
@@ -104,7 +104,7 @@ public class InsertionAndDeletion {
         return head;
     }
 
-    // delete the last node of the linked list
+    // delete the last Node of the linked list
     public static Node deleteLastNode(Node head){
         if(head == null)return null;
         if(head.next == null)return null;
@@ -117,7 +117,7 @@ public class InsertionAndDeletion {
     }
 
 
-//  insert  at kth position
+//  delete  at kth position
 public static Node deleleAtKthPosition(Node head, int k){
           
     if(head == null)return null;
