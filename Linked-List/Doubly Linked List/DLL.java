@@ -185,6 +185,30 @@ temp.back = newNode;
 return head;
 }
 
+public static Node oddEvenList(Node head) {
+    if( head == null || head.next == null ){
+       return head;
+   }
+
+ 
+   Node odd = head;
+   Node even = head.next;
+   Node newHead = head.next;
+   while(even != null && even.next != null){
+   odd.next = odd.next.next;
+   even.next = even.next.next;
+
+   odd = odd.next.next;
+   even = even.next.next;
+   }
+
+   odd.next = newHead;
+
+   
+
+  return head;
+} 
+
    
     public static void main(String[] args) {
     
@@ -198,7 +222,9 @@ return head;
         // insertions
         // head = insertAtHead(head,990);
         // head = insertAtTail(head,757);
-        head = insertBeforeTail(head, 100);
+        // head = insertBeforeTail(head, 100);
+
+        head = oddEvenList(head);
        
         display(head);
 

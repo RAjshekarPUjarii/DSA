@@ -23,10 +23,10 @@ public class LL{
 
 // display the linked list
     public static void display(SNode head){
-        SNode temp = head;
-        while(temp.next!=null){
-            System.out.print(temp.data + " ");
-            temp = temp.next;
+       
+        while(head!=null){
+            System.out.print(head.data + " ");
+            head = head.next;
         }
     }
 
@@ -53,11 +53,72 @@ public class LL{
         }
         return false;
     }
+
+    // Odd Even List
+
+    public static SNode oddEvenList(SNode head) {
+        if( head == null || head.next == null ){
+           return head;
+       }
+    
+     
+       SNode odd = head;
+       SNode even = head.next;
+       SNode newHead = head.next;
+       while(even != null && even.next != null){
+       odd.next = odd.next.next;
+       even.next = even.next.next;
+    
+       odd = odd.next;
+       even = even.next;
+       }
+    
+       odd.next = newHead;
+    
+       
+    
+      return head;
+    } 
+
+//    Reverse the linked list
+
+public static SNode reverseLL(SNode head){
+
+    if(head == null || head.next == null){
+        return head;
+    }
+
+    SNode temp = head;
+    SNode prev = null;
+    while(temp != null){
+
+        SNode front = temp.next;  
+        temp.next = prev;  
+
+        prev = temp;  
+ 
+        temp = front; 
+    }
+
+    return prev;
+}
+
+    
+
+    
     public static void main(String[] args) {
-        int arr[] = {1,2,3,9,9,9,9};
+        int arr[] = {1,2,3,4,5,6,7};
         SNode head = ConvertArrayToLL(arr);
-         display(head);
+
+        
         // System.out.println(LengthOfLL(head));
         // System.out.println(searchElementInLL(head,49));
+        //  head = oddEvenList(head);
+        head = reverseLL(head);
+        display(head);
+
+
+         
+
 }
 }
